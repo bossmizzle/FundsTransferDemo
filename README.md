@@ -30,8 +30,9 @@ For an account transfer to be successful the below conditions must be satisfied
 
 i also added a few utility methods to handle the debit and credit updates to the database records.
 
-1. hasSufficientFunds - > This methods determins whether an account holder has enough funds to transfer
-2. doesAccountExist	  - > This mehtod also determines whether an account holder exists.
+
+1. doesAccountExist	  - > This mehtod also determines whether an account holder exists.
+2. hasSufficientFunds - > This methods determins whether an account holder has enough funds to transfer
 
 When these conditions are satisfied, 
 the the transactions is allowed to be processed.
