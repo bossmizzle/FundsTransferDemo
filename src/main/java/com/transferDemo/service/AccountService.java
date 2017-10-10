@@ -13,15 +13,32 @@ public class AccountService implements IAccountService {
 	
 	@Autowired
 	private IAccountDAO AccountDAO;
+	
+	/**
+	*Method to retrieve an account details by the account number
+	*@param account id
+	*@return account details
+	*/
 	@Override
 	public Account getAccountById(int AccountId) {
 		Account obj = AccountDAO.getAccountById(AccountId);
 		return obj;
 	}	
+
+	/**
+	*Method to retrive all accounts created in the database
+	*@return all account details
+	*/
 	@Override
 	public List<Account> getAllAccounts(){
 		return AccountDAO.getAllAccounts();
 	}
+	
+	/**
+	*Method to create a new account. Returns true if Account was successfully created
+	*@param <object> Account details
+	*@return <boolean>
+	*/
 	@Override
 	public synchronized boolean addNewAccount(Account Account){
        if (AccountDAO.AccountExists(Account.getAccountId())) {
@@ -32,6 +49,12 @@ public class AccountService implements IAccountService {
        }
 	}
 	
+	/**
+	*Method to transfer funds to a recipient account
+	@param <object> FundsTransfer details
+	*@return true if the funds transfer was succesful
+	*/
+	@Override
 	public synchronized boolean transferFunds(FundsTransferDetails FundsTransferDetails)
 	{
 		boolean flag  = false;
